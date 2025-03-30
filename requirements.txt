@@ -1,0 +1,13 @@
+django>=5.1.7
+python-dotenv>=1.0.0
+requests>=2.31.0
+beautifulsoup4>=4.12.2
+wikipedia-api>=0.6.0
+groq>=0.4.0
+openai>=1.15.0
+pdf2image>=1.17.0
+pytesseract>=0.3.10
+PyPDF2>=3.0.1
+pillow>=10.2.0
+selenium>=4.18.0
+webdriver-manager>=4.0.1
