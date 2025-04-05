@@ -1,0 +1,42 @@
+Ideas for a GenAI Projects.
+First Batch:
+
+1): Generate images to test for color-blindness. We can also add an input function and create a chatbot out of it whose entire purpose is to commence a chat and then test for color-blindness.
+
+2): Colaborate with a website to create a FAQ chatbot that generates answers and even images(If available or possible) as well. In short, a Rag System with images.
+
+3): A mini ChatGPT model that can generate images, text and voice as well.
+
+4): A simple voice changer that takes voices as input and change them accordingly.
+
+5): A document summurizing bot that takes a document or an e-book and summerizes all the key-points in few words possible.
+
+6): A color changing bot that takes an image as input and allows the user to change the color of the selected area by giving name or hex code as input. Similar to changing filters but the color choice is user's.
+
+7): A chatbot that takes a question, either related to Physics or Mathematics and generate the solution for the question.
+
+8): A bot that generates a tests for the students of a particular standard or class. The user only needs to select the class or standard and the subject for which the test needs to be generated.
+
+9): A bot that takes an image as an input and generates a copy of it in different styles i.e: A normal image of a man to an animated one, or a normal scenery to a scenery in paintings.
+
+10): A bot that generates Memes by either taking images as input or just simple prompt or Both.
+
+Second Batch: 
+
+~ A helpful tool that provides an interface for indie authors to write a book, give suggestions related to story, generate different plot twists and plot-holes for author, give detailed description of the character for author to review and Generate images in different formats from classic to vintage or anime. We can skip the interface providing part if necessary and simply create a tool that leverages MLM, DLM and Generative AI. The dataset can be taken from articles online, e-books and pirated novels etc.
+
+~ A helpful AI tool that helps you visualize and explain your dream for you. It uses Psychology, Generative AI and Artificial Intelligence to understand the input given to it and decode the dream for the user and give helpful suggestions as well. We can also add features related to sound and image generation to create a Virtual Interface for user to either interact or just review.
+
+~ An AI Assistant that analyzes our code and explain it's use and functionality to us in details. The code is broken down into concepts that are shown in a balanced and organized way and can either be read or heard as an audio.
+
+~ An AI Assistant that generates PYTHON, NUMPY, PANDAS, etc tutorials in either a text, image or video format. It takes some inputs from the user related to the level they are at, i.e: Beginner, Intermidiate or Advance and generates a tutorial based on that data.
+
+~ An AI tool that takes ingredients available as input and help generate different and popular recipes from that region or country. The user only needs to select the ingredients available or accessible and the nationality or country they want the recipe of and Boom!! It generates a recipe for us to follow and cook. The recipe can be in text, image or even animated video format.
+
+~ An AI tool that takes a genre, mood or tone as input, searches the web for the popular one's available and show the user to allow them to choose one from many.
+
+~ An AI tool that generates different musics of different genre or mood for the user. The input is taken from the user, analyzed and then generated into either just beats or music entirely.
+
+~ An AI tool that help us generate an article about any Historical Event or Person. It is generated in text format and highlights the key details about that event or person. It also provides a Summary at the end for users who wish to have a quick look.
+
+~ An AI tool that takes a prompt from the user and generates a greeting card, birthday card or any other type of card with the specified colors and Quotes of the user choice. The AI tool provides suggestions and help the user navigate to create a beautiful cards for themselves or others.

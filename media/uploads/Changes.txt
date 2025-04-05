@@ -1,0 +1,33 @@
+chatbot-app/
+│
+├── app/
+│   ├── __init__.py
+│   ├── routes.py
+│   ├── config.py
+│   │
+│   ├── static/
+│   │   ├── css/
+│   │   ├── js/
+│   │   └── icons/
+│   │
+│   ├── templates/
+│   │   ├── base.html
+│   │   ├── index.html
+│   │   ├── simple_chat.html
+│   │   ├── rag_system.html
+│   │   ├── summarizer.html
+│   │   └── wiki_scraper.html
+│   │
+│   ├── services/
+│   │   ├── chatbot.py
+│   │   ├── rag.py
+│   │   ├── summarization.py
+│   │   └── scraping.py
+│   │
+│   └── utils/
+│       ├── file_processing.py
+│       └── helpers.py
+│
+├── requirements.txt
+├── config.py
+└── run.py

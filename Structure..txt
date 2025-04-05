@@ -1,0 +1,32 @@
+Final_Project/
+│-- Final_project/
+│   │-- .git/                     # Git repository metadata
+│   │-- __pycache__/               # Compiled Python files
+│   │-- media/
+│   │   ├── uploads/               # Media file uploads
+│   │-- model/                      # Django app directory
+│   │   ├── __pycache__/
+│   │   ├── migrations/             # Django migrations
+│   │   ├── __init__.py
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── models.py
+│   │   ├── tests.py
+│   │   ├── urls.py
+│   │   ├── utils.py
+│   │   ├── views.py
+│   │-- project/                   # Django project settings
+│   │   ├── __pycache__/
+│   │   ├── __init__.py
+│   │   ├── asgi.py
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   ├── wsgi.py
+│   │-- templates/
+│   │   ├── index.html              # Template files
+│   │-- .env                        # Environment variables
+│   │-- db.sqlite3                   # SQLite database file
+│   │-- manage.py                    # Django management script
+│   │-- requirements.txt              # Python dependencies
+│-- Process/
+│   ├── Report.docx                  # Document file

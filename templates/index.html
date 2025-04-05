@@ -15,528 +15,1910 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
-    /* Variables for Light Theme (Fun Theme) */
-    :root {
-        /* Global Colors */
-        --background-color: #f8f9fa;
-        --text-color: #333;
-        --card-bg: #ffffff;
-        --border-color: #e1e4e8;
-        
-        /* Carmen - Aqua Theme */
-        --carmen-primary: #00c2cb;
-        --carmen-secondary: #0099ff;
-        --carmen-accent: #b8e3ff;
-        --carmen-text: #333;
-        --carmen-chat-bg: #e6f7ff;
-        
-        /* Sirius - Warm Cat Theme */
-        --sirius-primary: #ff7f50;
-        --sirius-secondary: #ff9e80;
-        --sirius-accent: #fff0e6;
-        --sirius-text: #5d4037;
-        --sirius-chat-bg: #fff5f0;
-        
-        /* Myne - Elegant Tea Theme */
-        --myne-primary: #2c3e50;
-        --myne-secondary: #34495e;
-        --myne-accent: #ecf0f1;
-        --myne-text: #2c3e50;
-        --myne-chat-bg: #f5f7f8;
-        
-        /* Ped - Tech Theme */
-        --ped-primary: #4e54c8;
-        --ped-secondary: #8f94fb;
-        --ped-accent: #f0f3ff;
-        --ped-text: #333;
-        --ped-chat-bg: #eef2ff;
-    }
+    /* Variables for Light Theme (Morning Sky at its Brightest Theme) */
+:root {
+    /* Global Colors */
+    --background-color: #e6f3ff; /* Brighter morning sky blue background */
+    --text-color: #222222; /* Darker text for better contrast */
+    --card-bg: #ffffff;
+    --border-color: #d0e4f5; /* Softer blue border for better visibility */
+    --mascot-primary: #ffb52c; /* Bright morning sun orange */
+    --mascot-secondary: #ffd777; /* Vibrant yellow */
+    --mascot-accent: #e6f7ff;
+    --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* Lighter shadow for bright morning */
+    --hover-transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); /* Softer text shadow for bright morning */
+    --card-hover-transform: translateY(-10px) scale(1.02);
+    --subtle-pattern: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2387CEEB' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     
-    /* Variables for Dark Theme (Luxurious Theme) */
-    .dark-theme {
-        /* Global Colors */
-        --background-color: #121212;
-        --text-color: #e1e1e1;
-        --card-bg: #1e1e1e;
-        --border-color: #333;
-        
-        /* Carmen - Aqua Theme */
-        --carmen-primary: #00838f;
-        --carmen-secondary: #006064;
-        --carmen-accent: #0277bd;
-        --carmen-text: #e0f7fa;
-        --carmen-chat-bg: #002f36;
-        
-        /* Sirius - Warm Cat Theme */
-        --sirius-primary: #bf360c;
-        --sirius-secondary: #dd2c00;
-        --sirius-accent: #ff3d00;
-        --sirius-text: #ffccbc;
-        --sirius-chat-bg: #3e2723;
-        
-        /* Myne - Elegant Tea Theme */
-        --myne-primary: #1a2639;
-        --myne-secondary: #2a3950;
-        --myne-accent: #c9d1d3;
-        --myne-text: #d5d5d5;
-        --myne-chat-bg: #0d1b2a;
-        
-        /* Ped - Tech Theme */
-        --ped-primary: #2b2473;
-        --ped-secondary: #140b57;
-        --ped-accent: #6a60cc;
-        --ped-text: #e6e6ff;
-        --ped-chat-bg: #191245;
-    }
+    /* Model-specific colors */
+    --carmen-primary: #0066cc;
+    --carmen-secondary: #00a8ff;
+    --sirius-primary: #e55a30;
+    --sirius-secondary: #ff7f50;
+    --myne-primary: #2c3e50;
+    --myne-secondary: #34495e;
+    --ped-primary: #6a0dad;
+    --ped-secondary: #8a2be2;
     
-    /* General Styles */
-    body {
-        font-family: 'Poppins', sans-serif;
-        background-color: var(--background-color);
-        color: var(--text-color);
-        transition: all 0.3s ease;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-    }
+    /* Theme Animation Properties */
+    --animation-duration: 10s; /* Faster for more vibrant morning feel */
+    --wave-duration: 12s; /* Faster waves for morning breeze */
+    --card-bg-opacity: 0.92; /* Slightly more transparent for brightness */
+    --glow-opacity: 0.25; /* Stronger glow for morning light */
     
-    h1, h2, h3, h4, h5, h6 {
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 700;
-    }
+    /* Theme Particle Colors - Morning Sky Brightness */
+    --particle-primary: rgba(255, 181, 44, 0.7); /* Bright sun orange */
+    --particle-secondary: rgba(255, 215, 119, 0.65); /* Vibrant yellow */
+    --particle-tertiary: rgba(173, 216, 230, 0.6); /* Light blue for sky */
+    --particle-quaternary: rgba(135, 206, 250, 0.55); /* Sky blue */
     
-    .container {
-        max-width: 1200px;
-    }
+    /* Theme Wave Colors - Morning Clouds */
+    --wave-primary: rgba(255, 181, 44, 0.1); /* Bright morning glow */
+    --wave-secondary: rgba(173, 216, 230, 0.12); /* Light blue morning sky */
     
-    /* Header Styles */
-    header {
-        background: linear-gradient(135deg, var(--carmen-primary) 0%, var(--carmen-secondary) 100%);
-        color: white;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        padding: 1.5rem 0;
-    }
+    /* Enhanced Morning Sky at its Brightest theme elements */
+    --sun-color: #ffb52c; /* Bright morning sun */
+    --sun-glow: rgba(255, 181, 44, 0.4); /* Stronger morning sun glow */
+    --cloud-color: rgba(255, 255, 255, 0.9); /* Bright white clouds */
+    --cloud-shadow: rgba(0, 0, 0, 0.03); /* Very subtle cloud shadow for bright day */
+    --sun-ray-color: rgba(255, 215, 0, 0.2); /* Golden sun rays */
+    --morning-mist: rgba(240, 248, 255, 0.4); /* Light morning mist */
     
-    .quadranex-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        letter-spacing: -0.5px;
-        background: linear-gradient(to right, #ffffff, #e6e6e6);
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 0;
-    }
+    /* Common theme variables */
+    --model-gradient: linear-gradient(135deg, var(--model-primary) 0%, var(--model-secondary) 100%);
+    --model-hover-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    --model-border: 1px solid rgba(255, 255, 255, 0.3);
+    --model-backdrop: blur(10px);
     
-    .greeting-message {
-        margin-top: 1rem;
-        animation: fadeInUp 0.8s;
-        color: white;
-    }
+    /* Model-specific colors */
+    --carmen-primary: #0066cc;
+    --carmen-secondary: #00a8ff;
+    --carmen-accent: #b8e3ff;
+    --carmen-text: var(--text-color);
+    --carmen-chat-bg: var(--card-bg);
     
-    .logo-icon-animation {
-        animation: pulse 2s infinite;
-    }
+    --sirius-primary: #e55a30;
+    --sirius-secondary: #ff7f50;
+    --sirius-accent: #fff0e6;
+    --sirius-text: var(--text-color);
+    --sirius-chat-bg: var(--card-bg);
     
-    /* Theme Toggle Switch */
-    .theme-switch {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 30px;
-    }
+    --myne-primary: #000000;
+    --myne-secondary: #2c3e50;
+    --myne-accent: #ecf0f1;
+    --myne-text: var(--text-color);
+    --myne-chat-bg: var(--card-bg);
     
-    .theme-switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
+    --ped-primary: #6a0dad;
+    --ped-secondary: #8a2be2;
+    --ped-accent: #f0f3ff;
+    --ped-text: var(--text-color);
+    --ped-chat-bg: var(--card-bg);
+}
+
+/* Variables for Dark Theme (Night Sky Theme) */
+.dark-theme {
+    /* Global Colors */
+    --background-color: #0a0e1a; /* Deep night sky blue */
+    --text-color: #f5f5f5; /* Brighter text for better contrast in dark mode */
+    --card-bg: #1a1e2e; /* Slightly blue-tinted dark background */
+    --border-color: #444; /* Lighter border for better visibility */
     
-    .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        transition: .4s;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 5px;
-    }
+    /* Header and Footer Colors for Dark Mode */
+    --header-footer-gradient-start: #0f1631; /* Deep night sky blue */
+    --header-footer-gradient-end: #2c1e4a; /* Purple-blue for night sky theme */
+    --header-footer-accent: #fdbb2d; /* Moon-like accent */
     
-    .slider:before {
-        position: absolute;
-        content: "";
-        height: 22px;
-        width: 22px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        transition: .4s;
-        z-index: 2;
-    }
+    /* Animation properties for Night Sky theme - enhanced for starry night */
+    --particle-color-1: rgba(255, 255, 255, 0.8); /* Bright stars */
+    --particle-color-2: rgba(173, 216, 230, 0.7); /* Light blue stars */
+    --particle-color-3: rgba(255, 223, 186, 0.6); /* Warm stars */
+    --particle-color-4: rgba(176, 224, 230, 0.7); /* Powder blue stars */
+    --particle-speed: 20s; /* Faster particles for star movement */
+    --wave-color-1: rgba(25, 25, 112, 0.15); /* Dark blue waves for night sky */
+    --wave-color-2: rgba(72, 61, 139, 0.12); /* Dark slate blue waves */
+    --wave-animation-duration: 25s; /* Slower waves for night sky effect */
+    --glow-color: rgba(255, 255, 255, 0.2); /* Brighter glow for stars */
+    --card-bg-opacity: 0.9; /* Increased opacity for better text contrast */
+    --text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Enhanced text shadow for dark mode */
+    --shooting-star-duration: 2s; /* Duration for shooting star animation */
     
-    input:checked + .slider {
-        background-color: #2c3e50;
+    /* Enhanced Night Sky theme elements */
+    --moon-color: #fdbb2d; /* Moon-like color */
+    --moon-glow: rgba(253, 187, 45, 0.3); /* Moon glow */
+    --star-color-1: rgba(255, 255, 255, 0.9); /* Bright white stars */
+    --star-color-2: rgba(173, 216, 230, 0.8); /* Light blue stars */
+    --star-color-3: rgba(255, 223, 186, 0.7); /* Warm stars */
+    --shooting-star-color: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0)); /* Shooting star gradient */
+
+    /* Dark theme overrides for model colors */
+    --carmen-text: #f0f8ff;
+    --carmen-chat-bg: #0a2a4a;
+    --sirius-text: #ffe6d9;
+    --sirius-chat-bg: #3d2b24;
+    --myne-text: #ecf0f1;
+    --myne-chat-bg: #1a2530;
+    --ped-text: #e6e0ff;
+    --ped-chat-bg: #2a1a4a;
+}
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2); /* Subtle shadow for contrast */
+    overflow-x: hidden;
+    position: relative;
+    background-image: var(--subtle-pattern);
+}
+
+/* Morning Sky Animation Elements */
+.morning-sky-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.sun-rays {
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--sun-color) 0%, rgba(255, 181, 44, 0) 70%);
+    border-radius: 50%;
+    opacity: 0.7;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+.sun-rays::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--sun-glow) 0%, rgba(255, 181, 44, 0) 60%);
+    border-radius: 50%;
+    animation: pulse-glow 6s infinite alternate ease-in-out;
+    transform-origin: center;
+}
+
+.sun-ray {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--sun-ray-color), rgba(255, 215, 0, 0));
+    transform-origin: left center;
+    opacity: 0.6;
+    filter: blur(1px);
+}
+
+.sun-ray {
+    --rotation: 0deg;
+    transform: rotate(var(--rotation)) translateY(-50%);
+}
+
+@for $i from 1 through 12 {
+    .sun-ray:nth-child(#{$i}) {
+        --rotation: #{($i - 1) * 30}deg;
     }
-    
-    input:focus + .slider {
-        box-shadow: 0 0 1px #2c3e50;
+}
+
+.morning-mist {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: linear-gradient(to top, var(--morning-mist), rgba(240, 248, 255, 0));
+    opacity: 0.5;
+    filter: blur(8px);
+    animation: mist-float 15s infinite alternate ease-in-out;
+}
+
+@keyframes pulse-glow {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.2); opacity: 0.9; }
+    100% { transform: scale(1); opacity: 0.7; }
+}
+
+@keyframes mist-float {
+    0% { transform: translateY(0) translateX(-5%); }
+    50% { transform: translateY(-10px) translateX(5%); }
+    100% { transform: translateY(0) translateX(-5%); }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+/* Header Styles */
+header {
+    background: var(--header-bg);
+    background: linear-gradient(135deg, var(--carmen-primary) 0%, var(--carmen-secondary) 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0.8rem 0; /* Reduced padding for smaller header */
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.dark-theme header {
+    background: linear-gradient(135deg, var(--header-footer-gradient-start) 0%, var(--header-footer-gradient-end) 100%);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+header:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+    transform: rotate(30deg);
+    animation: subtle-float 8s infinite ease-in-out;
+}
+
+footer:before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -50%;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    transform: rotate(-30deg);
+    animation: subtle-float 10s infinite ease-in-out reverse;
+}
+
+.quadranex-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #ffffff; /* Solid white for visibility */
+    background: none; /* Remove gradient background */
+    -webkit-background-clip: initial;
+    -moz-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-fill-color: #ffffff; /* Ensure solid color */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Shadow for gradient background */
+    margin-bottom: 0;
+}
+
+/* Enhanced Header */
+.greeting-container {
+    margin-top: 1rem;
+    animation: fadeInUp 0.8s;
+}
+
+.greeting-message {
+    color: #ffffff; /* Force white for contrast */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.greeting-description {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+    max-width: 600px;
+}
+
+.logo-icon-animation {
+    animation: pulse 2s infinite;
+}
+
+/* Theme Toggle Switch */
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    z-index: 2;
+}
+
+input:checked + .slider {
+    background-color: #2c3e50;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2c3e50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(30px);
+}
+
+.slider.round {
+    border-radius: 30px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.light-icon, .dark-icon {
+    color: #ffffff; /* Ensure visibility */
+    font-size: 14px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.light-icon {
+    margin-right: 5px;
+}
+
+.dark-icon {
+    margin-left: 5px;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 2rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.main-description {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Model Icons Styles */
+.ai-models-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+    animation: fadeInUp 0.8s;
+}
+
+.model-icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--hover-transition);
+    width: 220px;
+    background-color: rgba(255, 255, 255, var(--card-bg-opacity));
+    border-radius: 20px;
+    padding: 25px 20px;
+    box-shadow: var(--card-shadow);
+    margin: 15px;
+    position: relative;
+    overflow: hidden;
+    animation: scaleIn 0.5s ease-out;
+    animation-fill-mode: both;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Increased border opacity */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.model-icon-item:nth-child(1) { animation-delay: 0.1s; }
+.model-icon-item:nth-child(2) { animation-delay: 0.2s; }
+.model-icon-item:nth-child(3) { animation-delay: 0.3s; }
+.model-icon-item:nth-child(4) { animation-delay: 0.4s; }
+
+.model-icon-item:hover {
+    transform: var(--card-hover-transform);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.model-icon-item:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    opacity: 0;
+    animation: card-glow 2s infinite alternate;
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+@keyframes card-glow {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.model-icon-item:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    transition: all 0.3s ease;
+}
+
+.model-icon-item[data-model="carmen"]:before {
+    background: linear-gradient(90deg, var(--carmen-primary), var(--carmen-secondary));
+}
+
+.model-icon-item[data-model="sirius"]:before {
+    background: linear-gradient(90deg, var(--sirius-primary), var(--sirius-secondary));
+}
+
+.model-icon-item[data-model="myne"]:before {
+    background: linear-gradient(90deg, var(--myne-primary), var(--myne-secondary));
+}
+
+.model-icon-item[data-model="ped"]:before {
+    background: linear-gradient(90deg, var(--ped-primary), var(--ped-secondary));
+}
+
+.model-icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateZ(0);
+    position: relative;
+    z-index: 1;
+    /* Removed gradient background from here - will be applied in model-specific classes */
+    background-color: var(--card-bg); /* Default background */
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+}
+
+.model-icon-item:hover .model-icon-circle {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.model-icon-circle::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.model-icon-item:hover .model-icon-circle::after {
+    opacity: 1;
+    animation: circle-shine 1.5s infinite alternate;
+}
+
+@keyframes circle-shine {
+    0% { opacity: 0; }
+    100% { opacity: 0.5; }
+}
+
+.model-icon {
+    font-size: 32px;
+    color: white;
+}
+
+.model-name {
+    font-size: 20px; /* Increased font size */
+    font-weight: 700; /* Increased font weight */
+    text-align: center;
+    color: var(--text-color); /* Theme-aware text */
+    text-shadow: var(--text-shadow);
+    margin-bottom: 10px;
+    padding: 5px 10px; /* Added padding */
+    background: rgba(255, 255, 255, 0.15); /* Subtle background for better contrast */
+    border-radius: 10px; /* Rounded corners */
+    display: inline-block; /* Make background fit content */
+}
+
+.model-description {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--text-color);
+    opacity: 1; /* Full opacity for better readability */
+    line-height: 1.6; /* Increased line height for better readability */
+    max-width: 200px;
+    letter-spacing: 0.3px; /* Increased letter spacing for better readability */
+    font-weight: 600; /* Bolder text for better visibility */
+    text-shadow: var(--text-shadow); /* Added text shadow for better contrast */
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background for better contrast */
+    padding: 8px 5px; /* Added padding for better visual separation */
+    border-radius: 8px; /* Rounded corners for the background */
+    margin-bottom: 5px;
+}
+
+/* Model Component Styles */
+.model-btn {
+    border: none !important;
+    background: var(--model-gradient) !important;
+}
+
+/* Model-specific icon circle styles */
+.carmen-circle {
+    background: linear-gradient(135deg, var(--carmen-primary) 0%, var(--carmen-secondary) 100%);
+}
+
+.sirius-circle {
+    background: linear-gradient(135deg, var(--sirius-primary) 0%, var(--sirius-secondary) 100%);
+}
+
+.myne-circle {
+    background: linear-gradient(135deg, var(--myne-primary) 0%, var(--myne-secondary) 100%);
+}
+
+.ped-circle {
+    background: linear-gradient(135deg, var(--ped-primary) 0%, var(--ped-secondary) 100%);
+}
+
+[class*="-icon"] {
+    --model-primary: var(--carmen-primary);
+    --model-secondary: var(--carmen-secondary);
+    color: white;
+}
+
+.sirius-icon { 
+    --model-primary: var(--sirius-primary); 
+    --model-secondary: var(--sirius-secondary);
+}
+
+.myne-icon { 
+    --model-primary: var(--myne-primary); 
+    --model-secondary: var(--myne-secondary);
+}
+
+.ped-icon { 
+    --model-primary: var(--ped-primary); 
+    --model-secondary: var(--ped-secondary);
+}
+
+/* Chat Modal Styles */
+.chat-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.chat-container {
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    transform: translateY(20px);
+    animation: slideUpFade 0.4s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+    backdrop-filter: blur(10px);
+}
+
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-header {
+    background: var(--header-bg);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #ffffff;
+    text-shadow: var(--text-shadow);
+}
+
+.close-chat {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.close-chat:hover {
+    transform: scale(1.1);
+}
+
+.chat-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 60vh;
+}
+
+.chat-history {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message-bubble {
+    padding: 12px 16px;
+    border-radius: 18px;
+    max-width: 80%;
+    word-wrap: break-word;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.1); /* Subtle shadow for readability */
+}
+
+/* Enhanced AI Response Formatting */
+.bot-message .message-bubble {
+    padding: 16px 20px; /* Increased padding for better readability */
+    line-height: 1.6; /* Improved line height for better readability */
+}
+
+.bot-message .message-bubble p {
+    margin-bottom: 0.8em;
+}
+
+.bot-message .message-bubble p:last-child {
+    margin-bottom: 0;
+}
+
+.bot-message .message-bubble ul, 
+.bot-message .message-bubble ol {
+    margin-top: 0.5em;
+    margin-bottom: 0.8em;
+    padding-left: 1.5em;
+}
+
+.bot-message .message-bubble li {
+    margin-bottom: 0.4em;
+}
+
+.bot-message .message-bubble h1,
+.bot-message .message-bubble h2,
+.bot-message .message-bubble h3 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.bot-message .message-bubble h1 {
+    font-size: 1.4em;
+}
+
+.bot-message .message-bubble h2 {
+    font-size: 1.2em;
+}
+
+.bot-message .message-bubble h3 {
+    font-size: 1.1em;
+}
+
+.user-message {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.user-message .message-bubble {
+    background-color: #e9ecef;
+    color: #333; /* Dark text for light background */
+    border-top-right-radius: 5px;
+    align-self: flex-end;
+}
+
+.bot-message .message-bubble {
+    border-top-left-radius: 5px;
+    align-self: flex-start;
+    color: inherit; /* Inherit theme-specific text color */
+}
+
+.chat-input-container {
+    padding: 15px 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.chat-input {
+    border-radius: 30px;
+    padding: 12px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.chat-input::placeholder {
+    color: #666; /* High-contrast placeholder */
+    opacity: 1;
+}
+
+.send-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    transition: all 0.3s;
+    color: white;
+}
+
+.send-btn:hover {
+    transform: scale(1.05);
+}
+
+/* Consolidated Chat Header Styles */
+.chat-header {
+    background: linear-gradient(135deg, var(--chat-header-primary) 0%, var(--chat-header-secondary) 100%);
+    padding: 1rem 2rem;
+}
+
+.carmen-chat { 
+    --chat-header-primary: var(--carmen-primary);
+    --chat-header-secondary: var(--carmen-secondary);
+    --chat-bg: var(--carmen-chat-bg);
+    --chat-text: var(--carmen-text);
+}
+
+.sirius-chat {
+    --chat-header-primary: var(--sirius-primary);
+    --chat-header-secondary: var(--sirius-secondary);
+    --chat-bg: var(--sirius-chat-bg);
+    --chat-text: var(--sirius-text);
+}
+
+.myne-chat {
+    --chat-header-primary: var(--myne-primary);
+    --chat-header-secondary: var(--myne-secondary);
+    --chat-bg: var(--myne-chat-bg);
+    --chat-text: var(--myne-text);
+}
+
+.ped-chat {
+    --chat-header-primary: var(--ped-primary);
+    --chat-header-secondary: var(--ped-secondary);
+    --chat-bg: var(--ped-chat-bg);
+    --chat-text: var(--ped-text);
+}
+
+.bot-message .message-bubble {
+    background-color: var(--chat-bg);
+    color: var(--chat-text);
+}
+
+.send-btn {
+    background: linear-gradient(135deg, var(--chat-header-primary) 0%, var(--chat-header-secondary) 100%);
+}
+
+/* File Upload Areas */
+.file-upload-container {
+    margin-top: 20px;
+}
+
+.drag-drop-area {
+    border: 2px dashed var(--border-color);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    background-color: rgba(0, 0, 0, 0.02); /* Subtle background for better visibility */
+}
+
+.drag-drop-area p {
+    color: var(--text-color); /* Theme-aware text */
+    margin: 0;
+}
+
+.upload-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Footer Styles */
+footer {
+    background: var(--footer-bg);
+    background: linear-gradient(135deg, var(--carmen-primary) 0%, var(--carmen-secondary) 100%);
+    color: #ffffff; /* White text for contrast */
+    padding: 10px 0; /* Reduced padding for smaller footer */
+    margin-top: auto;
+    font-size: 14px;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.dark-theme footer {
+    background: linear-gradient(135deg, var(--header-footer-gradient-start) 0%, var(--header-footer-gradient-end) 100%);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes subtle-float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Typing Animation for Greeting */
+.typing-animation {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.15em;
+    animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
+    border-right: 3px solid;
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(0, 123, 255, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); }
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    50% { border-color: transparent }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-20px);}
+    60% {transform: translateY(-10px);}
+}
+
+/* Mascot Styles */
+.mascot-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    cursor: pointer;
+    transition: var(--hover-transition);
+}
+
+.mascot-bubble {
+    position: absolute;
+    bottom: 90px;
+    right: 0;
+    width: 300px;
+    padding: 18px;
+    background-color: var(--card-bg);
+    border-radius: 18px;
+    box-shadow: var(--card-shadow);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    color: var(--text-color);
+    z-index: 1000;
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+.mascot-bubble.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    animation: bounce 0.5s;
+}
+
+.mascot-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--card-bg);
+}
+
+.mascot-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--mascot-primary) 0%, var(--mascot-secondary) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+    animation: float 3s ease-in-out infinite, pulse-mascot 2s infinite;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.mascot-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.mascot-icon i {
+    font-size: 32px;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+@keyframes pulse-mascot {
+    0% { box-shadow: 0 0 0 0 rgba(108, 92, 231, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(108, 92, 231, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(108, 92, 231, 0); }
+}
+
+/* Animated Background Styles */
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+/* Light Mode Animation Styles */
+.light-mode-animation {
+    opacity: 1;
+}
+
+.dark-theme .light-mode-animation {
+    opacity: 0;
+}
+
+/* Particles Animation */
+.particles-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.6;
+    filter: blur(4px);
+    animation: float-particle var(--particle-speed) infinite linear;
+}
+
+.particle-1, .particle-5 {
+    background-color: var(--particle-color-1);
+    width: 80px;
+    height: 80px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.particle-2, .particle-6 {
+    background-color: var(--particle-color-2);
+    width: 60px;
+    height: 60px;
+    top: 30%;
+    left: 70%;
+    animation-delay: -5s;
+}
+
+.particle-3, .particle-7 {
+    background-color: var(--particle-color-3);
+    width: 40px;
+    height: 40px;
+    top: 70%;
+    left: 30%;
+    animation-delay: -10s;
+}
+
+.particle-4, .particle-8 {
+    background-color: var(--particle-color-1);
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    animation-delay: -15s;
+}
+
+.particle-5 {
+    top: 80%;
+    left: 80%;
+    animation-delay: -7s;
+}
+
+.particle-6 {
+    top: 20%;
+    left: 40%;
+    animation-delay: -12s;
+}
+
+.particle-7 {
+    top: 60%;
+    left: 20%;
+    animation-delay: -3s;
+}
+
+.particle-8 {
+    top: 40%;
+    left: 90%;
+    animation-delay: -8s;
+}
+
+@keyframes float-particle {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+        opacity: 0.7;
     }
-    
-    input:checked + .slider:before {
-        transform: translateX(30px);
+    25% {
+        transform: translateY(-120px) translateX(120px) rotate(90deg) scale(1.15);
+        opacity: 0.9;
     }
-    
-    .slider.round {
-        border-radius: 30px;
+    50% {
+        transform: translateY(0) translateX(240px) rotate(180deg) scale(1);
+        opacity: 0.8;
     }
-    
-    .slider.round:before {
-        border-radius: 50%;
+    75% {
+        transform: translateY(120px) translateX(120px) rotate(270deg) scale(0.95);
+        opacity: 0.9;
     }
-    
-    .light-icon, .dark-icon {
-        color: white;
-        font-size: 14px;
+    100% {
+        transform: translateY(0) translateX(0) rotate(360deg) scale(1);
+        opacity: 0.7;
     }
-    
-    .light-icon {
-        margin-right: 5px;
+}
+
+/* Waves Animation */
+.waves-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.wave {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    border-radius: 40%;
+    animation: wave-animation var(--wave-animation-duration) infinite linear;
+}
+
+.wave-1 {
+    background-color: var(--wave-color-1);
+    top: 70%;
+    left: -50%;
+    animation-delay: 0s;
+    opacity: 0.8;
+}
+
+.wave-2 {
+    background-color: var(--wave-color-2);
+    top: 75%;
+    left: -60%;
+    animation-delay: -5s;
+    opacity: 0.9;
+}
+
+.wave-3 {
+    background-color: var(--wave-primary);
+    top: 65%;
+    left: -40%;
+    animation-delay: -8s;
+    opacity: 0.6;
+    filter: blur(2px);
+}
+
+@keyframes wave-animation {
+    0% {
+        transform: rotate(0deg);
     }
-    
-    .dark-icon {
-        margin-left: 5px;
+    100% {
+        transform: rotate(360deg);
     }
-    
-    /* Main Content */
-    main {
-        flex: 1;
-        padding: 2rem 0;
+}
+
+/* Dark Mode Animation Styles */
+.dark-mode-animation {
+    opacity: 0;
+}
+
+.dark-theme .dark-mode-animation {
+    opacity: 1;
+}
+
+/* Stars Animation */
+.stars-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    filter: blur(1px);
+    animation: twinkle 4s infinite ease-in-out;
+}
+
+.star-1 {
+    width: 2px;
+    height: 2px;
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.star-2 {
+    width: 3px;
+    height: 3px;
+    top: 30%;
+    left: 70%;
+    animation-delay: -1s;
+}
+
+.star-3 {
+    width: 2px;
+    height: 2px;
+    top: 70%;
+    left: 30%;
+    animation-delay: -2s;
+}
+
+.star-4 {
+    width: 4px;
+    height: 4px;
+    top: 50%;
+    left: 80%;
+    animation-delay: -3s;
+}
+
+.star-5 {
+    width: 2px;
+    height: 2px;
+    top: 20%;
+    left: 40%;
+    animation-delay: -0.5s;
+}
+
+.star-6 {
+    width: 3px;
+    height: 3px;
+    top: 80%;
+    left: 60%;
+    animation-delay: -1.5s;
+}
+
+.star-7 {
+    width: 2px;
+    height: 2px;
+    top: 40%;
+    left: 10%;
+    animation-delay: -2.5s;
+}
+
+.star-8 {
+    width: 3px;
+    height: 3px;
+    top: 60%;
+    left: 90%;
+    animation-delay: -3.5s;
+}
+
+/* Additional stars for enhanced starry night effect */
+.star-9 {
+    width: 3px;
+    height: 3px;
+    top: 15%;
+    left: 85%;
+    animation-delay: -0.7s;
+}
+
+.star-10 {
+    width: 4px;
+    height: 4px;
+    top: 25%;
+    left: 55%;
+    animation-delay: -1.2s;
+}
+
+.star-11 {
+    width: 2px;
+    height: 2px;
+    top: 45%;
+    left: 25%;
+    animation-delay: -1.7s;
+}
+
+.star-12 {
+    width: 3px;
+    height: 3px;
+    top: 65%;
+    left: 45%;
+    animation-delay: -2.2s;
+}
+
+.star-13 {
+    width: 4px;
+    height: 4px;
+    top: 85%;
+    left: 15%;
+    animation-delay: -2.7s;
+}
+
+.star-14 {
+    width: 2px;
+    height: 2px;
+    top: 5%;
+    left: 35%;
+    animation-delay: -3.2s;
+}
+
+.star-15 {
+    width: 3px;
+    height: 3px;
+    top: 75%;
+    left: 75%;
+    animation-delay: -3.7s;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.4;
+        transform: scale(1);
+        filter: blur(1px);
     }
-    
-    .main-description {
-        text-align: center;
-        margin-bottom: 3rem;
+    50% {
+        opacity: 1;
+        transform: scale(1.8);
+        filter: blur(0.5px);
+        box-shadow: 0 0 3px 1px var(--star-color-1);
     }
-    
-    /* Model Icons Styles */
+}
+
+.luxury-gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at bottom, rgba(25, 25, 112, 0.4) 0%, rgba(10, 14, 26, 0.2) 70%),
+                radial-gradient(ellipse at top, rgba(72, 61, 139, 0.3) 0%, rgba(10, 14, 26, 0.1) 70%);
+    animation: gradient-shift 15s infinite alternate ease-in-out;
+}
+
+@keyframes gradient-shift {
+    0% {
+        opacity: 0.5;
+        background-position: 0% 0%;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 0.5;
+        background-position: 100% 100%;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
     .ai-models-container {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 2rem;
-        margin-top: 2rem;
+        gap: 1rem;
     }
-    
-    .model-icon-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        width: 120px;
-    }
-    
+
     .model-icon-circle {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 1rem;
-        transition: all 0.3s;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 60px;
+        height: 60px;
     }
-    
+
     .model-icon {
-        font-size: 32px;
-        color: white;
+        font-size: 24px;
     }
-    
-    .model-name {
-        font-size: 16px;
-        font-weight: 600;
-        text-align: center;
-    }
-    
-    /* Carmen Styles */
-    .carmen-icon {
-        background: linear-gradient(135deg, var(--carmen-primary) 0%, var(--carmen-secondary) 100%);
-    }
-    
-    /* Sirius Styles */
-    .sirius-icon {
-        background: linear-gradient(135deg, var(--sirius-primary) 0%, var(--sirius-secondary) 100%);
-    }
-    
-    /* Myne Styles */
-    .myne-icon {
-        background: linear-gradient(135deg, var(--myne-primary) 0%, var(--myne-secondary) 100%);
-    }
-    
-    /* Ped Styles */
-    .ped-icon {
-        background: linear-gradient(135deg, var(--ped-primary) 0%, var(--ped-secondary) 100%);
-    }
-    
-    /* Chat Modal Styles */
-    .chat-modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1000;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .chat-modal.active {
-        display: flex;
-    }
-    
+
     .chat-container {
-        width: 90%;
-        max-width: 800px;
-        max-height: 80vh;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        display: flex;
-        flex-direction: column;
+        width: 95%;
+        max-height: 90vh;
     }
-    
-    .chat-header {
-        padding: 15px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .chat-title {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-weight: 600;
-        font-size: 1.2rem;
-        color: white;
-    }
-    
-    .close-chat {
-        background: transparent;
-        border: none;
-        color: white;
-        font-size: 1.5rem;
-        cursor: pointer;
-        transition: transform 0.3s;
-    }
-    
-    .close-chat:hover {
-        transform: scale(1.1);
-    }
-    
-    .chat-body {
-        flex: 1;
-        padding: 20px;
-        overflow-y: auto;
-        max-height: 60vh;
-    }
-    
-    .chat-history {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .message-bubble {
-        padding: 12px 16px;
-        border-radius: 18px;
-        max-width: 80%;
-        word-wrap: break-word;
-        position: relative;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    }
-    
-    .user-message {
-        display: flex;
-        justify-content: flex-end;
-    }
-    
-    .user-message .message-bubble {
-        background-color: #e9ecef;
-        color: #333;
-        border-top-right-radius: 5px;
-        align-self: flex-end;
-    }
-    
-    .bot-message .message-bubble {
-        border-top-left-radius: 5px;
-        align-self: flex-start;
-    }
-    
-    .chat-input-container {
-        padding: 15px 20px;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-    }
-    
-    .chat-input {
-        border-radius: 30px;
-        padding: 12px 20px;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        background-color: rgba(255, 255, 255, 0.9);
-    }
-    
-    .send-btn {
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        border: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 10px;
-        transition: all 0.3s;
-        color: white;
-    }
-    
-    .send-btn:hover {
-        transform: scale(1.05);
-    }
-    
-    /* Carmen Chat Specific Styles */
-    .carmen-chat .chat-header {
-        background: linear-gradient(135deg, var(--carmen-primary) 0%, var(--carmen-secondary) 100%);
-    }
-    
-    .carmen-chat .bot-message .message-bubble {
-        background-color: var(--carmen-chat-bg);
-        color: var(--carmen-text);
-    }
-    
-    .carmen-chat .send-btn {
-        background: linear-gradient(135deg, var(--carmen-primary) 0%, var(--carmen-secondary) 100%);
-    }
-    
-    /* Sirius Chat Specific Styles */
-    .sirius-chat .chat-header {
-        background: linear-gradient(135deg, var(--sirius-primary) 0%, var(--sirius-secondary) 100%);
-    }
-    
-    .sirius-chat .bot-message .message-bubble {
-        background-color: var(--sirius-chat-bg);
-        color: var(--sirius-text);
-    }
-    
-    .sirius-chat .send-btn {
-        background: linear-gradient(135deg, var(--sirius-primary) 0%, var(--sirius-secondary) 100%);
-    }
-    
-    /* Myne Chat Specific Styles */
-    .myne-chat .chat-header {
-        background: linear-gradient(135deg, var(--myne-primary) 0%, var(--myne-secondary) 100%);
-    }
-    
-    .myne-chat .bot-message .message-bubble {
-        background-color: var(--myne-chat-bg);
-        color: var(--myne-text);
-    }
-    
-    .myne-chat .send-btn {
-        background: linear-gradient(135deg, var(--myne-primary) 0%, var(--myne-secondary) 100%);
-    }
-    
-    /* Ped Chat Specific Styles */
-    .ped-chat .chat-header {
-        background: linear-gradient(135deg, var(--ped-primary) 0%, var(--ped-secondary) 100%);
-    }
-    
-    .ped-chat .bot-message .message-bubble {
-        background-color: var(--ped-chat-bg);
-        color: var(--ped-text);
-    }
-    
-    .ped-chat .send-btn {
-        background: linear-gradient(135deg, var(--ped-primary) 0%, var(--ped-secondary) 100%);
-    }
-    
-    /* File Upload Areas */
-    .file-upload-container {
-        margin-top: 20px;
-    }
-    
-    .drag-drop-area {
-        border: 2px dashed var(--border-color);
-        border-radius: 10px;
-        padding: 30px;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.3s;
-    }
-    
-    .upload-icon {
-        font-size: 2rem;
-        margin-bottom: 10px;
-    }
-    
-    /* Footer Styles */
-    footer {
-        background: linear-gradient(135deg, var(--carmen-primary) 0%, var(--carmen-secondary) 100%);
-        color: white;
-        padding: 15px 0;
-        margin-top: auto;
-        font-size: 14px;
-        font-weight: 500;
-    }
-    
-    /* Animations */
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-        100% { transform: scale(1); }
-    }
-    
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-    
-    @keyframes scaleIn {
-        from { transform: scale(0.8); opacity: 0; }
-        to { transform: scale(1); opacity: 1; }
-    }
-    
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
-        .ai-models-container {
-            gap: 1rem;
+}
+    </style>
+    <!-- Animated Background Styles -->
+    <style>
+        /* Animated Background Elements */
+        .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            opacity: 0.8;
+            pointer-events: none;
         }
         
-        .model-icon-circle {
-            width: 60px;
-            height: 60px;
+        /* Moon element for Night Sky theme */
+        .moon {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, #fffce8 0%, #fdbb2d 100%);
+            border-radius: 50%;
+            top: 12%;
+            right: 12%;
+            box-shadow: 0 0 40px rgba(253, 187, 45, 0.4);
+            animation: moon-pulse 10s infinite ease-in-out;
+            display: none;
         }
         
-        .model-icon {
-            font-size: 24px;
+        .dark-theme .moon {
+            display: block;
         }
         
+        .moon-glow {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle, rgba(253, 187, 45, 0.3) 0%, rgba(253, 187, 45, 0) 70%);
+            border-radius: 50%;
+            top: 10%;
+            right: 10%;
+            transform: translate(20px, 20px);
+            animation: moon-glow-pulse 8s infinite alternate ease-in-out;
+            display: none;
+        }
+        
+        .dark-theme .moon-glow {
+            display: block;
+        }
+        
+        @keyframes moon-pulse {
+            0%, 100% { box-shadow: 0 0 40px rgba(253, 187, 45, 0.4); }
+            50% { box-shadow: 0 0 60px rgba(253, 187, 45, 0.6); }
+        }
+        
+        @keyframes moon-glow-pulse {
+            0% { opacity: 0.6; transform: translate(20px, 20px) scale(1); }
+            100% { opacity: 0.8; transform: translate(20px, 20px) scale(1.1); }
+        }
+
+        /* Particles Animation - Enhanced for Sunrise/Day Sky */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0;
+            animation-name: float-particle;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            box-shadow: 0 0 15px var(--glow-color);
+            filter: blur(2px);
+        }
+        
+        /* Sun element for light mode */
+        .sun {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, #ffef7e 0%, #ff9e2c 70%, #ff7b00 100%);
+            border-radius: 50%;
+            top: 15%;
+            right: 15%;
+            box-shadow: 0 0 60px rgba(255, 158, 44, 0.6);
+            animation: sun-pulse 8s infinite ease-in-out;
+            display: block;
+        }
+        
+        .dark-theme .sun {
+            display: none;
+        }
+        
+        @keyframes sun-pulse {
+            0%, 100% { box-shadow: 0 0 60px rgba(255, 158, 44, 0.6); }
+            50% { box-shadow: 0 0 100px rgba(255, 158, 44, 0.8); }
+        }
+
+        .particle:nth-child(1) {
+            width: 12px;
+            height: 12px;
+            background-color: var(--particle-color-1);
+            animation-duration: calc(var(--particle-speed) * 0.8);
+            animation-delay: 0s;
+            top: 20%;
+            left: 10%;
+        }
+
+        .particle:nth-child(2) {
+            width: 18px;
+            height: 18px;
+            background-color: var(--particle-color-2);
+            animation-duration: calc(var(--particle-speed) * 1.2);
+            animation-delay: 2s;
+            top: 70%;
+            left: 30%;
+        }
+
+        .particle:nth-child(3) {
+            width: 15px;
+            height: 15px;
+            background-color: var(--particle-color-3);
+            animation-duration: var(--particle-speed);
+            animation-delay: 1s;
+            top: 40%;
+            left: 60%;
+        }
+
+        .particle:nth-child(4) {
+            width: 10px;
+            height: 10px;
+            background-color: var(--particle-color-1);
+            animation-duration: calc(var(--particle-speed) * 0.9);
+            animation-delay: 3s;
+            top: 30%;
+            left: 80%;
+        }
+
+        .particle:nth-child(5) {
+            width: 20px;
+            height: 20px;
+            background-color: var(--particle-color-2);
+            animation-duration: calc(var(--particle-speed) * 1.1);
+            animation-delay: 0.5s;
+            top: 80%;
+            left: 50%;
+        }
+
+        .particle:nth-child(6) {
+            width: 14px;
+            height: 14px;
+            background-color: var(--particle-color-3);
+            animation-duration: calc(var(--particle-speed) * 1.3);
+            animation-delay: 1.5s;
+            top: 60%;
+            left: 20%;
+        }
+
+        .particle:nth-child(7) {
+            width: 16px;
+            height: 16px;
+            background-color: var(--particle-color-4);
+            animation-duration: calc(var(--particle-speed) * 1.0);
+            animation-delay: 2.5s;
+            top: 25%;
+            left: 65%;
+        }
+
+        .particle:nth-child(8) {
+            width: 12px;
+            height: 12px;
+            background-color: var(--particle-color-1);
+            animation-duration: calc(var(--particle-speed) * 0.7);
+            animation-delay: 1.2s;
+            top: 55%;
+            left: 15%;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.8;
+                transform: translateY(-30px) translateX(30px) rotate(90deg) scale(1.2);
+            }
+            50% {
+                transform: translateY(-60px) translateX(60px) rotate(180deg) scale(1);
+            }
+            80% {
+                opacity: 0.8;
+                transform: translateY(-90px) translateX(90px) rotate(270deg) scale(0.8);
+            }
+            100% {
+                transform: translateY(-120px) translateX(120px) rotate(360deg) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Waves Animation */
+        .waves {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background-repeat: repeat-x;
+            transform-origin: center bottom;
+            filter: blur(3px);
+        }
+
+        .wave-1 {
+            background: var(--wave-color-1);
+            animation: wave-animation var(--wave-animation-duration) infinite linear;
+            height: 60%;
+            border-radius: 50% 50% 0 0;
+            opacity: 0.6;
+        }
+
+        .wave-2 {
+            background: var(--wave-color-2);
+            animation: wave-animation calc(var(--wave-animation-duration) * 0.8) infinite linear reverse;
+            height: 40%;
+            border-radius: 50% 50% 0 0;
+            opacity: 0.4;
+        }
+
+        .wave-3 {
+            background: var(--wave-color-1);
+            animation: wave-animation calc(var(--wave-animation-duration) * 1.2) infinite linear;
+            height: 30%;
+            border-radius: 50% 50% 0 0;
+            opacity: 0.3;
+        }
+
+        @keyframes wave-animation {
+            0% {
+                transform: translateX(0) scaleY(1) rotate(0deg);
+            }
+            25% {
+                transform: translateX(-12.5%) scaleY(0.9) rotate(1deg);
+            }
+            50% {
+                transform: translateX(-25%) scaleY(0.8) rotate(0deg);
+            }
+            75% {
+                transform: translateX(-37.5%) scaleY(0.9) rotate(-1deg);
+            }
+            100% {
+                transform: translateX(-50%) scaleY(1) rotate(0deg);
+            }
+        }
+
+        /* Glassmorphism effect for cards */
+        .model-icon-item {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, var(--card-bg-opacity));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .dark-theme .model-icon-item {
+            background-color: rgba(30, 30, 30, var(--card-bg-opacity));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Enhanced chat container with glassmorphism */
         .chat-container {
-            width: 95%;
-            max-height: 90vh;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-    }
+
+        .dark-theme .chat-container {
+            background-color: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Sunrise/Day Sky Elements */
+        .sun-rays {
+            position: absolute;
+            top: 15%;
+            right: 15%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, transparent 30%, rgba(255, 207, 119, 0.2) 70%);
+            border-radius: 50%;
+            transform: translate(40px, 40px);
+            animation: rays-rotate 30s infinite linear;
+            z-index: -1;
+        }
+        
+        .dark-theme .sun-rays {
+            display: none;
+        }
+        
+        @keyframes rays-rotate {
+            0% { transform: translate(40px, 40px) rotate(0deg); }
+            100% { transform: translate(40px, 40px) rotate(360deg); }
+        }
+        
+        /* Cloud Styles */
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            filter: blur(5px);
+            animation: float-cloud 30s infinite ease-in-out;
+        }
+        
+        .cloud-1 {
+            width: 200px;
+            height: 60px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .cloud-2 {
+            width: 160px;
+            height: 40px;
+            top: 30%;
+            left: 60%;
+            animation-delay: -10s;
+        }
+        
+        .cloud-3 {
+            width: 120px;
+            height: 30px;
+            top: 15%;
+            left: 40%;
+            animation-delay: -20s;
+        }
+        
+        .dark-theme .cloud {
+            display: none;
+        }
+        
+        @keyframes float-cloud {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(100px); }
+        }
+        
+        /* Shooting Star Animation */
+        .shooting-star {
+            position: absolute;
+            width: 150px;
+            height: 2px;
+            background: var(--shooting-star-color);
+            transform: rotate(45deg);
+            top: 20%;
+            left: 30%;
+            opacity: 0;
+            animation: shooting-star var(--shooting-star-duration) infinite ease-out;
+            animation-delay: 3s;
+            display: none;
+        }
+        
+        .shooting-star-2 {
+            top: 40%;
+            left: 60%;
+            animation-delay: 7s;
+        }
+        
+        .dark-theme .shooting-star {
+            display: block;
+        }
+        
+        @keyframes shooting-star {
+            0% {
+                opacity: 0;
+                transform: rotate(45deg) translateX(0) translateY(0);
+            }
+            10% {
+                opacity: 1;
+            }
+            20% {
+                opacity: 0;
+                transform: rotate(45deg) translateX(300px) translateY(-300px);
+            }
+            100% {
+                opacity: 0;
+                transform: rotate(45deg) translateX(300px) translateY(-300px);
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Animated Background Elements -->
+    <div class="animated-background">
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="waves">
+            <div class="wave wave-1"></div>
+            <div class="wave wave-2"></div>
+            <div class="wave wave-3"></div>
+        </div>
+    </div>
+    <!-- Animated Background Elements -->
+    <div class="animated-background light-mode-animation">
+        <!-- Sun element for Sunrise/Day Sky theme -->
+        <div class="sun"></div>
+        
+        <!-- Sun rays -->
+        <div class="sun-rays"></div>
+        
+        <!-- Clouds for Day Sky -->
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+        
+        <div class="particles-container">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+            <div class="particle particle-6"></div>
+            <div class="particle particle-7"></div>
+            <div class="particle particle-8"></div>
+        </div>
+        <div class="waves-container">
+            <div class="wave wave-1"></div>
+            <div class="wave wave-2"></div>
+        </div>
+    </div>
+    
+    <div class="animated-background dark-mode-animation">
+        <!-- Moon element for Night Sky theme -->
+        <div class="moon"></div>
+        <div class="moon-glow"></div>
+        
+        <div class="stars-container">
+            <div class="star star-1"></div>
+            <div class="star star-2"></div>
+            <div class="star star-3"></div>
+            <div class="star star-4"></div>
+            <div class="star star-5"></div>
+            <div class="star star-6"></div>
+            <div class="star star-7"></div>
+            <div class="star star-8"></div>
+            <div class="star star-9"></div>
+            <div class="star star-10"></div>
+            <div class="star star-11"></div>
+            <div class="star star-12"></div>
+            <div class="star star-13"></div>
+            <div class="star star-14"></div>
+            <div class="star star-15"></div>
+            <!-- Additional stars for enhanced night sky -->
+            <div class="star star-16"></div>
+            <div class="star star-17"></div>
+            <div class="star star-18"></div>
+            <div class="star star-19"></div>
+            <div class="star star-20"></div>
+            <div class="shooting-star"></div>
+            <div class="shooting-star shooting-star-2"></div>
+        </div>
+        <div class="luxury-gradient"></div>
+    </div>
     <header>
         <div class="container d-flex justify-content-between align-items-center">
             <div class="logo-container d-flex align-items-center">
@@ -545,6 +1927,10 @@
                 </div>
                 <div>
                     <h1 class="m-0 quadranex-title">QuadraNex-AI</h1>
+                    <div class="greeting-container">
+                        <p class="greeting-message typing-animation">Your AI assistant suite</p>
+                        <p class="greeting-description">Explore our collection of specialized AI models designed to help with various tasks</p>
+                    </div>
                 </div>
             </div>
             <div class="d-flex align-items-center">
@@ -572,28 +1958,32 @@
             <!-- AI Models Icons -->
             <div class="ai-models-container">
                 <div class="model-icon-item" data-model="carmen">
-                    <div class="model-icon-circle carmen-icon">
+                    <div class="model-icon-circle carmen-circle">
                         <i class="fas fa-comments model-icon"></i>
                     </div>
                     <span class="model-name">Carmen</span>
+                    <p class="model-description">A friendly chatbot assistant that can answer questions and help with everyday tasks.</p>
                 </div>
                 <div class="model-icon-item" data-model="sirius">
-                    <div class="model-icon-circle sirius-icon">
+                    <div class="model-icon-circle sirius-circle">
                         <i class="fas fa-book-open model-icon"></i>
                     </div>
                     <span class="model-name">Sirius</span>
+                    <p class="model-description">Upload documents and ask questions about their content with this RAG-powered assistant.</p>
                 </div>
                 <div class="model-icon-item" data-model="myne">
-                    <div class="model-icon-circle myne-icon">
+                    <div class="model-icon-circle myne-circle">
                         <i class="fas fa-spell-check model-icon"></i>
                     </div>
                     <span class="model-name">Myne</span>
+                    <p class="model-description">A professional proofreader that checks your documents for grammar, spelling, and style issues.</p>
                 </div>
                 <div class="model-icon-item" data-model="ped">
-                    <div class="model-icon-circle ped-icon">
+                    <div class="model-icon-circle ped-circle">
                         <i class="fas fa-globe model-icon"></i>
                     </div>
                     <span class="model-name">Ped</span>
+                    <p class="model-description">Extract and summarize information from Wikipedia articles with this web scraping tool.</p>
                 </div>
             </div>
         </div>
@@ -649,9 +2039,13 @@
                     <div class="drag-drop-area" id="sirius-upload-area">
                         <i class="fas fa-file-upload upload-icon" style="color: var(--sirius-primary);"></i>
                         <p>Drag & drop your document here, or click to browse</p>
-                        <input type="file" id="sirius-file-input" class="file-input" hidden>
+                        <p class="small text-muted">Supported formats: PDF, DOCX, TXT</p>
+                        <input type="file" id="sirius-file-input" class="file-input" accept=".pdf,.docx,.txt,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain" hidden>
                     </div>
                     <div class="uploaded-file-info mt-2" id="sirius-file-info"></div>
+                    <button class="btn mt-2 w-100 sirius-btn" id="sirius-upload-btn">
+                        <i class="fas fa-cloud-upload-alt me-2"></i> Upload Document
+                    </button>
                 </div>
                 <div class="chat-history" id="sirius-chat-history">
                     <div class="bot-message">
@@ -689,11 +2083,15 @@
                     <div class="drag-drop-area" id="myne-upload-area">
                         <i class="fas fa-file-upload upload-icon" style="color: var(--myne-primary);"></i>
                         <p>Drag & drop your document here, or click to browse</p>
-                        <input type="file" id="myne-file-input" class="file-input" hidden>
+                        <p class="small text-muted">Supported formats: PDF, DOCX, TXT</p>
+                        <input type="file" id="myne-file-input" class="file-input" accept=".pdf,.docx,.txt,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain" hidden>
                     </div>
                     <div class="uploaded-file-info mt-2" id="myne-file-info"></div>
+                    <button class="btn mt-2 w-100 myne-btn" id="myne-upload-btn">
+                        <i class="fas fa-cloud-upload-alt me-2"></i> Upload Document
+                    </button>
                 </div>
-                <button class="btn mt-3 w-100" id="myne-proofread-btn" style="background: linear-gradient(135deg, var(--myne-primary) 0%, var(--myne-secondary) 100%); color: white;">
+                <button class="btn mt-3 w-100 myne-btn" id="myne-proofread-btn">
                     <i class="fas fa-check-double me-2"></i> Proofread Document
                 </button>
                 <div class="results-container mt-4" id="myne-results">
@@ -723,7 +2121,7 @@
                     <div class="input-group">
                         <span class="input-group-text"><i class="fas fa-link"></i></span>
                         <input type="text" class="form-control" id="ped-url-input" placeholder="Enter Wikipedia URL (e.g., https://en.wikipedia.org/wiki/Artificial_intelligence)">
-                        <button class="btn" id="ped-scrape-btn" style="background: linear-gradient(135deg, var(--ped-primary) 0%, var(--ped-secondary) 100%); color: white;">
+                        <button class="btn ped-btn" id="ped-scrape-btn">
                             <i class="fas fa-search me-2"></i> Scrape
                         </button>
                     </div>
@@ -735,6 +2133,16 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Mascot Helper -->
+    <div class="mascot-container" id="mascot-helper">
+        <div class="mascot-bubble" id="mascot-bubble">
+            <p>Hi there! I'm Quad, your AI guide. Click on any model to start using it, or ask me if you need help!</p>
+        </div>
+        <div class="mascot-icon">
+            <i class="fas fa-robot"></i>
         </div>
     </div>
 
@@ -750,103 +2158,812 @@
 
     <!-- Custom JavaScript -->
     <script>
-        // Wait for DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Theme Toggle Functionality
-            const themeCheckbox = document.getElementById('theme-checkbox');
-            const body = document.body;
-            
-            // Initialize theme based on saved preference
-            if (localStorage.getItem('theme') === 'dark') {
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Theme Toggle Functionality
+        const themeCheckbox = document.getElementById('theme-checkbox');
+        const body = document.body;
+        const lightModeAnimation = document.querySelector('.light-mode-animation');
+        const darkModeAnimation = document.querySelector('.dark-mode-animation');
+        
+        // Function to update theme animations
+        function updateThemeAnimations(isDarkMode) {
+            if (isDarkMode) {
+                lightModeAnimation.style.opacity = '0';
+                setTimeout(() => {
+                    darkModeAnimation.style.opacity = '1';
+                }, 300);
+            } else {
+                darkModeAnimation.style.opacity = '0';
+                setTimeout(() => {
+                    lightModeAnimation.style.opacity = '1';
+                }, 300);
+            }
+        }
+        
+        // Initialize theme based on saved preference
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-theme');
+            themeCheckbox.checked = true;
+            updateThemeAnimations(true);
+        } else {
+            body.classList.remove('dark-theme');
+            themeCheckbox.checked = false;
+            updateThemeAnimations(false);
+        }
+        
+        // Theme switch event listener
+        themeCheckbox.addEventListener('change', function() {
+            if (this.checked) {
                 body.classList.add('dark-theme');
-                themeCheckbox.checked = true;
+                localStorage.setItem('theme', 'dark');
+                updateThemeAnimations(true);
             } else {
                 body.classList.remove('dark-theme');
-                themeCheckbox.checked = false;
+                localStorage.setItem('theme', 'light');
+                updateThemeAnimations(false);
             }
-            
-            // Theme switch event listener
-            themeCheckbox.addEventListener('change', function() {
-                console.log('Theme toggle clicked, current state:', this.checked);
-                if (this.checked) {
-                    body.classList.add('dark-theme');
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    body.classList.remove('dark-theme');
-                    localStorage.setItem('theme', 'light');
-                }
-            });
-            
-            // Model Icons Click Handlers
-            const modelIcons = document.querySelectorAll('.model-icon-item');
-            const chatModals = document.querySelectorAll('.chat-modal');
-            const closeButtons = document.querySelectorAll('.close-chat');
-            
-            // Function to open chat modal
-            function openChatModal(modelName) {
-                console.log('Opening modal for:', modelName);
-                const modal = document.getElementById(`${modelName}-modal`);
-                if (modal) {
-                    modal.classList.add('active');
-                }
-            }
-            
-            // Function to close chat modal
-            function closeChatModal(modelName) {
-                console.log('Closing modal for:', modelName);
-                const modal = document.getElementById(`${modelName}-modal`);
-                if (modal) {
-                    modal.classList.remove('active');
-                }
-            }
-            
-            // Add click event listeners to model icons
-            modelIcons.forEach(icon => {
-                const modelName = icon.getAttribute('data-model');
-                console.log('Adding click listener to model icon:', modelName);
-                
-                icon.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const clickedModel = this.getAttribute('data-model');
-                    console.log('Model icon clicked:', clickedModel);
-                    openChatModal(clickedModel);
-                });
-                
-                // Add touch support for mobile
-                icon.addEventListener('touchstart', function(e) {
-                    e.preventDefault();
-                    const clickedModel = this.getAttribute('data-model');
-                    console.log('Model icon touched:', clickedModel);
-                    openChatModal(clickedModel);
-                });
-                
-                // Ensure cursor style is set
-                icon.style.cursor = 'pointer';
-            });
-            
-            // Add click event listeners to close buttons
-            closeButtons.forEach(button => {
-                const modelName = button.getAttribute('data-model');
-                console.log('Adding click listener to close button for:', modelName);
-                
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const modelToClose = this.getAttribute('data-model');
-                    console.log('Close button clicked for:', modelToClose);
-                    closeChatModal(modelToClose);
-                });
-                
-                // Add touch support for mobile
-                button.addEventListener('touchstart', function(e) {
-                    e.preventDefault();
-                    const modelToClose = this.getAttribute('data-model');
-                    console.log('Close button touched for:', modelToClose);
-                    closeChatModal(modelToClose);
-                });
-            });
-            
-            console.log('All event listeners have been initialized');
         });
+
+        // AI Facts and Jokes Data
+        const aiFacts = [
+            "The term 'Artificial Intelligence' was first coined by John McCarthy in 1956.",
+            "Deep Blue was the first computer to beat a world chess champion, Garry Kasparov, in 1997.",
+            "The Turing Test, proposed by Alan Turing in 1950, tests a machine's ability to exhibit intelligent behavior.",
+            "GPT-3, released in 2020, has 175 billion parameters, making it one of the largest language models.",
+            "AI can now generate realistic images, music, and even videos that never existed before.",
+            "Machine learning is a subset of AI that enables systems to learn from data without explicit programming.",
+            "The first AI program was a checkers-playing program developed by Arthur Samuel in 1952.",
+            "Facial recognition AI can now identify individuals with over 99% accuracy in ideal conditions.",
+            "AI-powered robots are being used in surgery to assist doctors with precision procedures.",
+            "The global AI market is projected to reach over $500 billion by 2024.",
+            "Neural networks are inspired by the structure and function of the human brain.",
+            "AI systems can now compose music that's indistinguishable from human-created compositions.",
+            "Reinforcement learning is how AI learns to make decisions through trial and error."
+        ];
+        
+        const aiJokes = [
+            "Why did the AI go to art school? Because it wanted to learn how to draw its own conclusions!",
+            "How many AI engineers does it take to change a light bulb? None, they just redefine darkness as the preferred state!",
+            "What do you call an AI that sings? Artificial Harmonies!",
+            "Why don't AI assistants ever tell dad jokes? They're afraid of being called 'pop-up' culture!",
+            "What's an AI's favorite place to shop? The algorithm!",
+            "Why was the robot angry? Because someone kept pushing its buttons!",
+            "How does an AI take a selfie? With its artificial intelligence camera!",
+            "What do you call a robot that always takes the long way around? An algorithm!",
+            "Why did the chatbot cross the road? To get to the other site!",
+            "What's a robot's favorite type of music? Heavy metal!",
+            "Why did the AI become a gardener? It wanted to work with natural intelligence for a change!",
+            "What's an AI's favorite dessert? Cookies... it's always collecting them!",
+            "How do robots pay for things? With crypto-currency!"
+        ];
+        
+        const mascotHelper = document.getElementById('mascot-helper');
+        const mascotBubble = document.getElementById('mascot-bubble');
+        let bubbleTimeout;
+        
+        // Function to get random item from array
+        function getRandomItem(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        }
+        
+        // Function to toggle between facts and jokes
+        function updateMascotBubble() {
+            // 50% chance for fact, 50% for joke
+            const content = Math.random() > 0.5 ? 
+                `<strong>AI Fact:</strong> ${getRandomItem(aiFacts)}` : 
+                `<strong>AI Joke:</strong> ${getRandomItem(aiJokes)}`;
+            
+            mascotBubble.innerHTML = content;
+        }
+        
+        // Show mascot bubble on page load after a delay
+        setTimeout(() => {
+            updateMascotBubble();
+            mascotBubble.classList.add('active');
+            // Auto-hide after 8 seconds
+            bubbleTimeout = setTimeout(() => {
+                mascotBubble.classList.remove('active');
+            }, 8000);
+        }, 2000);
+        
+        // Toggle mascot bubble on click and update content
+        mascotHelper.querySelector('.mascot-icon').addEventListener('click', function() {
+            clearTimeout(bubbleTimeout);
+            
+            if (mascotBubble.classList.contains('active')) {
+                mascotBubble.classList.remove('active');
+            } else {
+                updateMascotBubble();
+                mascotBubble.classList.add('active');
+                
+                // Auto-hide after 8 seconds
+                bubbleTimeout = setTimeout(() => {
+                    mascotBubble.classList.remove('active');
+                }, 8000);
+            }
+        });
+        
+        // Dynamic greeting message
+        const greetings = [
+            "Welcome to the future of AI assistance!",
+            "Your AI companion suite is ready!",
+            "Discover the power of AI with QuadraNex!",
+            "AI solutions for every need!",
+            "Your intelligent assistants await!",
+            "Experience next-gen AI today!",
+            "Smart solutions, one click away!"
+        ];
+        
+        // Set random greeting
+        const greetingElement = document.querySelector('.greeting-message');
+        if (greetingElement) {
+            greetingElement.textContent = getRandomItem(greetings);
+        }
+
+        // Add hover effects to model icons
+        const modelItems = document.querySelectorAll('.model-icon-item');
+        modelItems.forEach((item, index) => {
+            // Add staggered animation delay
+            item.style.animationDelay = `${index * 0.1}s`;
+            
+            // Add hover effect
+            item.addEventListener('mouseenter', function() {
+                const iconCircle = this.querySelector('.model-icon-circle');
+                if (iconCircle) {
+                    iconCircle.style.transform = 'scale(1.1) rotate(5deg)';
+                }
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                const iconCircle = this.querySelector('.model-icon-circle');
+                if (iconCircle) {
+                    iconCircle.style.transform = '';
+                }
+            });
+        });
+        // Model Icons Click Handlers
+        const modelIcons = document.querySelectorAll('.model-icon-item');
+        const chatModals = document.querySelectorAll('.chat-modal');
+        const closeButtons = document.querySelectorAll('.close-chat');
+        
+        // Function to open chat modal
+        function openChatModal(modelName) {
+            console.log('Opening modal for:', modelName);
+            const modal = document.getElementById(`${modelName}-modal`);
+            if (modal) {
+                modal.classList.add('active');
+            }
+        }
+        
+        // Function to close chat modal
+        function closeChatModal(modelName) {
+            console.log('Closing modal for:', modelName);
+            const modal = document.getElementById(`${modelName}-modal`);
+            if (modal) {
+                modal.classList.remove('active');
+            }
+        }
+        
+        // Add click event listeners to model icons
+        modelIcons.forEach(icon => {
+            const modelName = icon.getAttribute('data-model');
+            console.log('Adding click listener to model icon:', modelName);
+            
+            icon.addEventListener('click', function(e) {
+                e.preventDefault();
+                const clickedModel = this.getAttribute('data-model');
+                console.log('Model icon clicked:', clickedModel);
+                openChatModal(clickedModel);
+                
+                // Apply typing effect to initial greeting messages when chat is opened
+                if (clickedModel === 'carmen') {
+                    const initialMessage = document.querySelector('#carmen-chat-history .bot-message .message-bubble');
+                    if (initialMessage) {
+                        const messageText = initialMessage.textContent.trim();
+                        initialMessage.textContent = '';
+                        typeMessageWordByWord(messageText, initialMessage, 50, 700);
+                    }
+                } else if (clickedModel === 'sirius') {
+                    const initialMessage = document.querySelector('#sirius-chat-history .bot-message .message-bubble');
+                    if (initialMessage) {
+                        const messageText = initialMessage.textContent.trim();
+                        initialMessage.textContent = '';
+                        typeMessageWordByWord(messageText, initialMessage, 50, 700);
+                    }
+                }
+            });
+            
+            // Add touch support for mobile
+            icon.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                const clickedModel = this.getAttribute('data-model');
+                console.log('Model icon touched:', clickedModel);
+                openChatModal(clickedModel);
+            });
+            
+            // Ensure cursor style is set
+            icon.style.cursor = 'pointer';
+        });
+        
+        // Add click event listeners to close buttons
+        closeButtons.forEach(button => {
+            const modelName = button.getAttribute('data-model');
+            console.log('Adding click listener to close button for:', modelName);
+            
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const modelToClose = this.getAttribute('data-model');
+                console.log('Close button clicked for:', modelToClose);
+                closeChatModal(modelToClose);
+            });
+            
+            // Add touch support for mobile
+            button.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                const modelToClose = this.getAttribute('data-model');
+                console.log('Close button touched for:', modelToClose);
+                closeChatModal(modelToClose);
+            });
+        });
+        
+        // Function to get CSRF token (required for Django POST requests)
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        
+        // Function to display text with a typing effect word by word
+        function typeMessageWordByWord(text, element, speed = 50, paragraphPause = 700) {
+            // Clear the element first
+            element.innerHTML = '';
+            
+            // Split text into paragraphs
+            const paragraphs = text.split('\n\n').filter(p => p.trim() !== '');
+            
+            let paragraphIndex = 0;
+            let wordIndex = 0;
+            let words = [];
+            
+            // Create a paragraph element for the first paragraph
+            let currentParagraph = document.createElement('p');
+            element.appendChild(currentParagraph);
+            
+            // Start with the first paragraph
+            if (paragraphs.length > 0) {
+                words = paragraphs[0].split(' ');
+            }
+            
+            // Function to type the next word
+            function typeNextWord() {
+                // If we've typed all words in the current paragraph
+                if (wordIndex >= words.length) {
+                    paragraphIndex++;
+                    wordIndex = 0;
+                    
+                    // If we've typed all paragraphs, we're done
+                    if (paragraphIndex >= paragraphs.length) {
+                        return;
+                    }
+                    
+                    // Add a pause between paragraphs
+                    setTimeout(() => {
+                        // Create a new paragraph element
+                        currentParagraph = document.createElement('p');
+                        element.appendChild(currentParagraph);
+                        
+                        // Get words for the next paragraph
+                        words = paragraphs[paragraphIndex].split(' ');
+                        
+                        // Continue typing
+                        typeNextWord();
+                    }, paragraphPause);
+                    
+                    return;
+                }
+                
+                // Add the next word with a space
+                if (wordIndex > 0) {
+                    currentParagraph.innerHTML += ' ';
+                }
+                currentParagraph.innerHTML += words[wordIndex];
+                wordIndex++;
+                
+                // Scroll to the bottom of the chat container
+                const chatBody = element.closest('.chat-body');
+                if (chatBody) {
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                }
+                
+                // Schedule the next word
+                setTimeout(typeNextWord, speed);
+            }
+            
+            // Start typing
+            typeNextWord();
+        }
+        
+        // Carmen Chat Functionality
+        function sendCarmenMessage() {
+            const input = document.getElementById('carmen-input');
+            const message = input.value.trim();
+            if (message) {
+                // Append user's message to chat history
+                const userMessage = `<div class="user-message"><div class="message-bubble">${message}</div></div>`;
+                document.getElementById('carmen-chat-history').innerHTML += userMessage;
+                
+                // Send message to server
+                fetch('/chat/carmen/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': getCookie('csrftoken')
+                    },
+                    body: JSON.stringify({ message: message })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Create bot message container
+                    const botMessageContainer = document.createElement('div');
+                    botMessageContainer.className = 'bot-message';
+                    
+                    const messageBubble = document.createElement('div');
+                    messageBubble.className = 'message-bubble';
+                    botMessageContainer.appendChild(messageBubble);
+                    
+                    // Add the empty container to the chat history
+                    document.getElementById('carmen-chat-history').appendChild(botMessageContainer);
+                    
+                    // Use the typing effect to display the response
+                    typeMessageWordByWord(data.response, messageBubble, 50, 700);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    
+                    // Create bot message container for error
+                    const botMessageContainer = document.createElement('div');
+                    botMessageContainer.className = 'bot-message';
+                    
+                    const messageBubble = document.createElement('div');
+                    messageBubble.className = 'message-bubble';
+                    botMessageContainer.appendChild(messageBubble);
+                    
+                    // Add the empty container to the chat history
+                    document.getElementById('carmen-chat-history').appendChild(botMessageContainer);
+                    
+                    // Use the typing effect to display the error message
+                    typeMessageWordByWord("Sorry, there was an error processing your request.", messageBubble, 50, 700);
+                });
+                
+                // Clear input
+                input.value = '';
+            }
+        }
+        
+        // Add click event listener to Carmen send button
+        document.getElementById('carmen-send').addEventListener('click', sendCarmenMessage);
+        
+        // Add keypress event listener to Carmen input field
+        document.getElementById('carmen-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                sendCarmenMessage();
+            }
+        });
+        
+        // Sirius File Upload and Chat Functionality
+        const siriusUploadArea = document.getElementById('sirius-upload-area');
+        const siriusFileInput = document.getElementById('sirius-file-input');
+        const siriusUploadBtn = document.getElementById('sirius-upload-btn');
+        let siriusFile = null;
+        let siriusFileUploaded = false;
+        
+        // Function to validate file type
+        function validateSiriusFile(file) {
+            const validTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'text/plain'];
+            const fileExtension = file.name.split('.').pop().toLowerCase();
+            const validExtensions = ['pdf', 'docx', 'txt', 'csv', 'log', 'md'];
+            
+            if (!validTypes.includes(file.type) && !validExtensions.includes(fileExtension)) {
+                alert('Please select a PDF, DOCX, or text file (TXT, CSV, LOG, MD).');
+                return false;
+            }
+            return true;
+        }
+        
+        // Handle click on upload area
+        siriusUploadArea.addEventListener('click', function() {
+            siriusFileInput.click();
+        });
+        
+        // Handle file selection
+        siriusFileInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                const selectedFile = this.files[0];
+                if (validateSiriusFile(selectedFile)) {
+                    siriusFile = selectedFile;
+                    document.getElementById('sirius-file-info').innerHTML = `
+                        <div class="alert alert-info">
+                            <i class="fas fa-file-alt me-2"></i>
+                            <strong>Selected file:</strong> ${siriusFile.name} (${(siriusFile.size / 1024).toFixed(2)} KB)
+                        </div>`;
+                    siriusFileUploaded = false; // Reset upload status when new file is selected
+                    // Enable upload button
+                    siriusUploadBtn.classList.remove('disabled');
+                    siriusUploadBtn.innerHTML = '<i class="fas fa-cloud-upload-alt me-2"></i> Upload Document';
+                }
+            }
+        });
+        
+        // Handle drag and drop
+        siriusUploadArea.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            this.style.backgroundColor = 'var(--sirius-accent)';
+            this.style.borderColor = 'var(--sirius-primary)';
+        });
+        siriusUploadArea.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            this.style.backgroundColor = '';
+            this.style.borderColor = '';
+        });
+        siriusUploadArea.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.style.backgroundColor = '';
+            this.style.borderColor = '';
+            if (e.dataTransfer.files.length > 0) {
+                const droppedFile = e.dataTransfer.files[0];
+                if (validateSiriusFile(droppedFile)) {
+                    siriusFile = droppedFile;
+                    document.getElementById('sirius-file-info').innerHTML = `
+                        <div class="alert alert-info">
+                            <i class="fas fa-file-alt me-2"></i>
+                            <strong>Selected file:</strong> ${siriusFile.name} (${(siriusFile.size / 1024).toFixed(2)} KB)
+                        </div>`;
+                    siriusFileUploaded = false; // Reset upload status when new file is dropped
+                    // Enable upload button
+                    siriusUploadBtn.classList.remove('disabled');
+                    siriusUploadBtn.innerHTML = '<i class="fas fa-cloud-upload-alt me-2"></i> Upload Document';
+                }
+            }
+        });
+        
+        // Handle upload button click
+        siriusUploadBtn.addEventListener('click', function() {
+            if (!siriusFile) {
+                alert('Please select a document first.');
+                return;
+            }
+            
+            // Show loading state
+            siriusUploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Uploading...';
+            siriusUploadBtn.classList.add('disabled');
+            
+            // Simulate upload process (in a real app, this would be an actual upload)
+            setTimeout(() => {
+                // Update button to show success
+                siriusUploadBtn.innerHTML = '<i class="fas fa-check me-2"></i> Document Uploaded';
+                siriusUploadBtn.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+                
+                // Create bot message to confirm upload
+                const botMessageContainer = document.createElement('div');
+                botMessageContainer.className = 'bot-message';
+                
+                const messageBubble = document.createElement('div');
+                messageBubble.className = 'message-bubble';
+                botMessageContainer.appendChild(messageBubble);
+                
+                // Add the container to the chat history
+                document.getElementById('sirius-chat-history').appendChild(botMessageContainer);
+                
+                // Display confirmation message
+                typeMessageWordByWord(`Document "${siriusFile.name}" has been uploaded successfully. You can now ask questions about it.`, messageBubble, 50, 700);
+                
+                // Mark file as uploaded
+                siriusFileUploaded = true;
+            }, 1000);
+        });
+        
+        // Sirius send functionality
+        function sendSiriusMessage() {
+            const input = document.getElementById('sirius-input');
+            const query = input.value.trim();
+            
+            // Check if file has been uploaded using the upload button
+            if (!siriusFileUploaded) {
+                alert('Please upload a document using the "Upload Document" button first.');
+                return;
+            }
+            
+            if (query && siriusFile) {
+                // Create FormData for file upload
+                const formData = new FormData();
+                formData.append('file', siriusFile);
+                formData.append('query', query);
+                
+                // Append user's message to chat history
+                const userMessage = `<div class="user-message"><div class="message-bubble">${query}</div></div>`;
+                document.getElementById('sirius-chat-history').innerHTML += userMessage;
+                
+                // Send request to server
+                fetch('/rag/sirius/', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRFToken': getCookie('csrftoken')
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Create bot message container
+                    const botMessageContainer = document.createElement('div');
+                    botMessageContainer.className = 'bot-message';
+                    
+                    const messageBubble = document.createElement('div');
+                    messageBubble.className = 'message-bubble';
+                    botMessageContainer.appendChild(messageBubble);
+                    
+                    // Add the empty container to the chat history
+                    document.getElementById('sirius-chat-history').appendChild(botMessageContainer);
+                    
+                    // Use the typing effect to display the response
+                    typeMessageWordByWord(data.response, messageBubble, 50, 700);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    
+                    // Create bot message container for error
+                    const botMessageContainer = document.createElement('div');
+                    botMessageContainer.className = 'bot-message';
+                    
+                    const messageBubble = document.createElement('div');
+                    messageBubble.className = 'message-bubble';
+                    botMessageContainer.appendChild(messageBubble);
+                    
+                    // Add the empty container to the chat history
+                    document.getElementById('sirius-chat-history').appendChild(botMessageContainer);
+                    
+                    // Use the typing effect to display the error message
+                    typeMessageWordByWord("Sorry, there was an error processing your request.", messageBubble, 50, 700);
+                });
+                
+                // Clear input
+                input.value = '';
+            } else {
+                alert('Please enter a query about your document.');
+            }
+        }
+        
+        // Add click event listener to Sirius send button
+        document.getElementById('sirius-send').addEventListener('click', sendSiriusMessage);
+        
+        // Add keypress event listener to Sirius input field
+        document.getElementById('sirius-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                sendSiriusMessage();
+            }
+        });
+        
+        // Myne File Upload and Proofread Functionality
+        const myneUploadArea = document.getElementById('myne-upload-area');
+        const myneFileInput = document.getElementById('myne-file-input');
+        const myneUploadBtn = document.getElementById('myne-upload-btn');
+        const myneProofreadBtn = document.getElementById('myne-proofread-btn');
+        let myneFile = null;
+        let myneFileUploaded = false;
+        
+        // Initially disable the proofread button until a file is uploaded
+        myneProofreadBtn.classList.add('disabled');
+        
+        // Function to validate file type
+        function validateMyneFile(file) {
+            const validTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'text/plain'];
+            const fileExtension = file.name.split('.').pop().toLowerCase();
+            const validExtensions = ['pdf', 'docx', 'txt', 'csv', 'log', 'md'];
+            
+            if (!validTypes.includes(file.type) && !validExtensions.includes(fileExtension)) {
+                alert('Please select a PDF, DOCX, or text file (TXT, CSV, LOG, MD).');
+                return false;
+            }
+            return true;
+        }
+        
+        // Handle click on upload area
+        myneUploadArea.addEventListener('click', function() {
+            myneFileInput.click();
+        });
+        
+        // Handle file selection
+        myneFileInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                const selectedFile = this.files[0];
+                if (validateMyneFile(selectedFile)) {
+                    myneFile = selectedFile;
+                    document.getElementById('myne-file-info').innerHTML = `
+                        <div class="alert alert-info">
+                            <i class="fas fa-file-alt me-2"></i>
+                            <strong>Selected file:</strong> ${myneFile.name} (${(myneFile.size / 1024).toFixed(2)} KB)
+                        </div>`;
+                    myneFileUploaded = false; // Reset upload status when new file is selected
+                    // Enable upload button
+                    myneUploadBtn.classList.remove('disabled');
+                    myneUploadBtn.innerHTML = '<i class="fas fa-cloud-upload-alt me-2"></i> Upload Document';
+                }
+            }
+        });
+        
+        // Handle drag and drop
+        myneUploadArea.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            this.style.backgroundColor = 'var(--myne-accent)';
+            this.style.borderColor = 'var(--myne-primary)';
+        });
+        myneUploadArea.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            this.style.backgroundColor = '';
+            this.style.borderColor = '';
+        });
+        myneUploadArea.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.style.backgroundColor = '';
+            this.style.borderColor = '';
+            if (e.dataTransfer.files.length > 0) {
+                const droppedFile = e.dataTransfer.files[0];
+                if (validateMyneFile(droppedFile)) {
+                    myneFile = droppedFile;
+                    document.getElementById('myne-file-info').innerHTML = `
+                        <div class="alert alert-info">
+                            <i class="fas fa-file-alt me-2"></i>
+                            <strong>Selected file:</strong> ${myneFile.name} (${(droppedFile.size / 1024).toFixed(2)} KB)
+                        </div>`;
+                    myneFileUploaded = false; // Reset upload status when new file is dropped
+                    // Enable upload button
+                    myneUploadBtn.classList.remove('disabled');
+                    myneUploadBtn.innerHTML = '<i class="fas fa-cloud-upload-alt me-2"></i> Upload Document';
+                }
+            }
+        });
+        
+        // Handle upload button click
+        myneUploadBtn.addEventListener('click', function() {
+            if (!myneFile) {
+                alert('Please select a document first.');
+                return;
+            }
+            
+            // Show loading state
+            myneUploadBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Uploading...';
+            myneUploadBtn.classList.add('disabled');
+            
+            // Simulate upload process (in a real app, this would be an actual upload)
+            setTimeout(() => {
+                // Update button to show success
+                myneUploadBtn.innerHTML = '<i class="fas fa-check me-2"></i> Document Uploaded';
+                myneUploadBtn.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+                
+                // Display confirmation message
+                document.getElementById('myne-results-content').innerHTML = `
+                    <div class="alert alert-success">
+                        <i class="fas fa-check-circle me-2"></i>
+                        <strong>Success!</strong> Document "${myneFile.name}" has been uploaded successfully.
+                        <p class="mt-2 mb-0">Click "Proofread Document" to analyze it.</p>
+                    </div>`;
+                
+                // Mark file as uploaded
+                myneFileUploaded = true;
+                
+                // Enable the proofread button
+                myneProofreadBtn.classList.remove('disabled');
+            }, 1000);
+        });
+        
+        // Myne proofread button
+        document.getElementById('myne-proofread-btn').addEventListener('click', function() {
+            if (!myneFileUploaded) {
+                alert('Please upload a document using the "Upload Document" button first.');
+                return;
+            }
+            
+            if (myneFile) {
+                // Show loading state
+                myneProofreadBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Proofreading...';
+                myneProofreadBtn.classList.add('disabled');
+                // Create FormData for file upload
+                const formData = new FormData();
+                formData.append('file', myneFile);
+                
+                // Show loading message
+                document.getElementById('myne-results-content').innerHTML = '<div class="p-3 text-center"><i class="fas fa-spinner fa-spin fa-2x mb-3"></i><p>Processing your document...</p></div>';
+                
+                // Send request to server
+                fetch('/proofread/myne/', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRFToken': getCookie('csrftoken')
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Display results
+                    document.getElementById('myne-results-content').innerHTML = data.response;
+                    // Reset button state
+                    myneProofreadBtn.innerHTML = '<i class="fas fa-check-double me-2"></i> Proofread Document';
+                    myneProofreadBtn.classList.remove('disabled');
+                    myneProofreadBtn.style.background = 'linear-gradient(135deg, var(--myne-primary) 0%, var(--myne-secondary) 100%)';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('myne-results-content').innerHTML = '<div class="alert alert-danger"><i class="fas fa-exclamation-circle me-2"></i>Sorry, there was an error processing your request.</div>';
+                    // Reset button state
+                    myneProofreadBtn.innerHTML = '<i class="fas fa-check-double me-2"></i> Proofread Document';
+                    myneProofreadBtn.classList.remove('disabled');
+                    myneProofreadBtn.style.background = 'linear-gradient(135deg, var(--myne-primary) 0%, var(--myne-secondary) 100%)';
+                });
+            } else {
+                alert('Please upload a document first.');
+            }
+        });
+        
+        // Ped Scrape Functionality
+        document.getElementById('ped-scrape-btn').addEventListener('click', function() {
+            const urlInput = document.getElementById('ped-url-input');
+            const url = urlInput.value.trim();
+            if (url) {
+                // Show loading message
+                document.getElementById('ped-results-content').innerHTML = '<p>Scraping Wikipedia article...</p>';
+                
+                // Send request to server
+                fetch('/scrape/ped/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': getCookie('csrftoken')
+                    },
+                    body: JSON.stringify({ url: url })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById('ped-results-content').innerHTML = `<p class="text-danger">${data.error}</p>`;
+                    } else {
+                        // Display results
+                        let resultsHtml = `
+                            <h3>${data.title}</h3>
+                            <div class="summary">${data.summary}</div>
+                            <div class="content">${data.content}</div>
+                        `;
+                        if (data.images && data.images.length > 0) {
+                            resultsHtml += '<h4>Images</h4><div class="images">';
+                            data.images.forEach(img => {
+                                resultsHtml += `<img src="${img}" alt="Wikipedia image" style="max-width: 200px; margin: 10px;">`;
+                            });
+                            resultsHtml += '</div>';
+                        }
+                        document.getElementById('ped-results-content').innerHTML = resultsHtml;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('ped-results-content').innerHTML = '<p class="text-danger">Sorry, there was an error processing your request.</p>';
+                });
+            } else {
+                alert('Please enter a Wikipedia URL.');
+            }
+        });
+        
+        console.log('All event listeners have been initialized');
+    });
     </script>
 </body>
 </html>

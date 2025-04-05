@@ -18,9 +18,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('api/chat/', views.chatbot_view, name='chatbot'),
-    path('api/document/', views.rag_view, name='rag'),
-    path('api/wikipedia/', views.wikipedia_view, name='wikipedia'),
-    path('api/proofread/', views.proofreader_view, name='proofreader'),
+    path('', views.index, name='index'),                # Root URL for the main page
+    path('chat/carmen/', views.chatbot_view, name='chat_carmen'),
+    path('rag/sirius/', views.rag_view, name='rag_sirius'),
+    path('proofread/myne/', views.proofreader_view, name='proofread_myne'),
+    path('scrape/ped/', views.wikipedia_view, name='scrape_ped'),
 ]
