@@ -4,7 +4,6 @@ This is a Django-based web application.
 
 ## Features
 
-- User authentication
 - Database integration (SQLite)
 - API endpoints (if applicable)
 - Custom templates and views
